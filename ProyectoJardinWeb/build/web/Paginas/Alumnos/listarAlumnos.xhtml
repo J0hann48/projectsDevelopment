@@ -1,0 +1,75 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        <f:view>
+            <h:form>
+                <h1><h:outputText value="List"/></h1>
+                <h:dataTable value="#{controllerAlumno.consultarAlumnos()}" var="alumno">
+<!--                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="Idalumno"/>
+                        </f:facet>
+                        <h:outputText value="#alumno.idalumno}"/>
+                    </h:column>-->
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="Identificacion"/>
+                        </f:facet>
+                        <h:outputText value="#{alumno.personaidentificacion.identificacion}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="FechaNacimiento"/>
+                        </f:facet>
+                        <h:outputText value="#{alumno.fechaNacimiento}">
+                            <f:convertDateTime pattern="MM/dd/yyyy" />
+                        </h:outputText>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="Fechaingreso"/>
+                        </f:facet>
+                        <h:outputText value="#{alumno.fechaingreso}">
+                            <f:convertDateTime pattern="MM/dd/yyyy" />
+                        </h:outputText>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="Fechasalida"/>
+                        </f:facet>
+                        <h:outputText value="#{alumno.fechasalida}">
+                            <f:convertDateTime pattern="MM/dd/yyyy" />
+                        </h:outputText>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="Observaciones"/>
+                        </f:facet>
+                        <h:outputText value="#{alumno.observaciones}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="Padre de familia"/>
+                        </f:facet>
+                        <h:outputText value="#{alumno.padrefamiliaidentificacion.usuariosidentificacion.identificacion}"/>
+                    </h:column>                    
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="Opciones"/>
+                        </f:facet>
+                        <h:commandLink value="Editar" action="#{controllerAlumno.actualizarAlumnos(alumno)}"></h:commandLink>
+                        <h:commandLink value="Eliminar" action="#{controllerAlumno.eliminarAlumnos(alumno)}"></h:commandLink>
+                    </h:column>
+                </h:dataTable>
+            </h:form>
+        </f:view>
+
+    </h:body>
+</html>
+
